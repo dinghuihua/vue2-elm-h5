@@ -1,12 +1,17 @@
-<style lang="less" src="./home.less"></style>
+<style lang="less" src="./home.less" scoped></style>
 <template>
   <div class="page-home" v-if="showThePage">
     <h2>home页的内容</h2>
+
+    <!-- 底部的固定导航栏 -->
+    <Footer-nav></Footer-nav>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import FooterNav from '../common/footer_nav/footer_nav'
+
 export default {
   name: 'home',
   data () {
@@ -31,7 +36,7 @@ export default {
 
   },
   components: {
-
+    FooterNav
   }
 }
 </script>

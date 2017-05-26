@@ -1,0 +1,27 @@
+@import '../../../style/mixin.less';
+
+.footer_nav{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding-top: .12rem;
+	height: 1.333333rem;
+	box-shadow: 0 -0.026667rem 0.053333rem rgba(0,0,0,.1);
+	background-color: @white;
+	color: #666;
+	.text{
+		display: block;
+		font-size: .266667rem;
+	}
+	.icon{
+		font-size: 0.533333rem;
+	}
+	.router-link-active{
+		color: @blue;
+	}
+    	
+}
