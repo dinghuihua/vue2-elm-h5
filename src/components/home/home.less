@@ -1,0 +1,41 @@
+@import '../../style/mixin.less';
+.page-home{
+	.header{
+		width: 100%;
+		padding: 0.3rem 0.373333rem;
+		background-color: @blue;
+		color: @white;
+		.location{
+			width: 60%;
+			height: 0.92rem;
+			line-height: 0.92rem;
+			font-size: 0.5rem;
+			.text-ellipsis;
+			.text{
+				font-size: .48rem;
+			}
+		}
+		.search-input{
+			width: 100%;
+			height: 0.96rem;
+			margin: 0.2rem 0;
+			text-align: center;
+			border-radius: 0.96rem;
+			box-shadow: 0 0.026667rem 0.066667rem 0 rgba(0,0,0,.2);
+			font-size: 0.346667rem;
+			color: #333;
+		}
+		.hot-word{
+			display: flex;
+			align-items: center;
+		  white-space: nowrap;
+		  overflow-x: auto;
+		  span {
+		  	color: @white;
+		  }
+			span:not(:last-child){
+				margin-right: .4rem;
+			}
+		} 	
+	}
+}
