@@ -1,0 +1,114 @@
+[v-cloak] {
+  visibility: hidden
+}
+
+*,::after,::before {
+  box-sizing: inherit;
+  -webkit-tap-highlight-color: transparent
+}
+
+html {
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+  color: #333;
+  font-family: 'Helvetica Neue',Tahoma,Arial,PingFangSC-Regular,'Hiragino Sans GB','Microsoft Yahei',sans-serif;
+  line-height: 1.2;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  touch-action: manipulation;
+  text-size-adjust: none
+}
+
+body,button,dd,dl,ol,ul {
+  margin: 0;
+  padding: 0;
+}
+
+ol,ul {
+  list-style: none
+}
+
+a {
+  outline: 0;
+  color: inherit;
+  text-decoration: none
+}
+
+a,img {
+  -webkit-touch-callout: none
+}
+
+button,input,select,textarea {
+  outline: 0;
+  border: none;
+  font-size: inherit;
+  font-family: inherit
+}
+
+h1,h2,h3,h4,h5,h6,p {
+  margin: 0;
+  font-weight: 400
+}
+
+img {
+  max-width: 100%
+}
+
+textarea {
+  resize: none
+}
+
+select {
+  background-color: transparent;
+  appearance: none;
+}
+
+input[type=button],input[type=reset],input[type=submit] {
+  appearance: button;
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0 100px #fff inset
+}
+
+.shellAnimation {
+  animation: shellPulse 1s infinite
+}
+
+@keyframes shellPulse {
+  0% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: .6
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar
+{
+    width: 0px;
+    height: 0px;
+    background-color: #F5F5F5;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
