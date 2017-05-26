@@ -21,6 +21,23 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 var proxyTable = config.dev.proxyTable
 
 var app = express()
+
+/* start 模拟接口 */
+var appData = require('../server/data.json')
+var hotWords = appData.hot_search_word
+
+var apiRoutes = express.Router()
+
+apiRoutes.get('/getHotWords', function (req, res) {
+  res.json({
+    errno: 0,
+    data: hotWords
+  });
+})
+
+app.use('/api', apiRoutes)
+/* end 模拟接口 */
+
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
