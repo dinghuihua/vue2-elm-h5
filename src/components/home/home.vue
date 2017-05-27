@@ -121,16 +121,22 @@
         </Swipe-item>
       </Swipe>
     </div>
+    <!-- 推荐商家 -->
+    <div class="index-seller">
+      <h3 class="title">推荐商家</h3>
+      <seller-list></seller-list>
+    </div>
     <!-- 底部的固定导航栏 -->
-    <Footer-nav></Footer-nav>
+    <footer-nav></footer-nav>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import { Swipe, SwipeItem } from 'vue-swipe'
-import FooterNav from '../common/footer_nav/footer_nav'
 import axios from 'axios'
+import footerNav from '../common/footerNav/footer_nav'
+import sellerList from '../common/sellerList/seller_list'
 
 const ERR_OK = 0
 
@@ -166,7 +172,7 @@ export default {
     }
   },
   components: {
-    FooterNav, Swipe, SwipeItem
+    footerNav, Swipe, SwipeItem, sellerList
   }
 }
 </script>

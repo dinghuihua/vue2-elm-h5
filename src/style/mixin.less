@@ -1,9 +1,14 @@
 @blue: #0096ff;
 @white: #fff;
 @gray: #f4f4f4;
-
+@main-blue: #2395ff;
 .text-ellipsis{
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+}
+/* flex布局 及其子元素 在主轴上的对齐方式*/
+.flex-j(@type){
+	display: flex;
+	justify-content: @type;
 }

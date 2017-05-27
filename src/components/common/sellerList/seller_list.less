@@ -1,0 +1,92 @@
+@import '../../../style/mixin.less';
+.shop-warpper{
+	// 分割斜杠
+	.split:after{
+		content: '/';
+		margin-left: 0.08rem;
+		color: #ddd;
+	}
+	.flex-j(space-between);
+	align-items: flex-start;
+	.logo{
+		padding: .4rem .266667rem;
+		img{
+			width: 1.6rem;
+			height: 1.6rem;
+		}
+	}
+	.main{
+		flex-grow: 1;
+		padding: .4rem .266667rem .4rem 0;
+		.line-wrapper{
+			&:not(:first-child){
+				margin-top: 0.2rem;
+			}
+			.flex-j(space-between);
+			font-size: .293333rem;
+			color: #666;
+			.brand-sign:before{
+				content: "品牌";
+				margin-right: .133333rem;
+		    padding: 0 .066667rem;
+		    line-height: .5rem;
+		    vertical-align: top;
+		    border-radius: .053333rem;
+		    background-color: #ffd930;
+		    color: #52250a;
+		    font-weight: 700;
+		    font-size: .293333rem;
+			}
+			.shopname{
+				max-width: 5rem;
+				font-weight: 700;
+    		font-size: .4rem;
+    		.text-ellipsis;
+			}
+			.supportWrap{
+				display: flex;
+				.supper{
+					i{
+						display: inline-block;
+						line-height: 1;
+						margin-left: .066667rem;
+						color: rgb(153, 153, 153);
+    				border: 0.013333rem solid rgb(221, 221, 221);
+    				font-size: .266667rem;
+					}	
+				}
+			}
+			.rateWrap{
+
+			}
+			.deliveryWrap{
+				.delivery{
+					display: inline-block;
+					line-height: 1;
+					padding: 0 .053333rem;
+			    border: 0.013333rem solid #44a5ff;
+			    border-radius: .053333rem;
+			    background-color: @white;
+			    color: @main-blue;
+			    font-size: .266667rem;
+			    &.type{
+			    	color: @white;
+			    	background-color: @main-blue;
+			    }
+				}
+				span:not(:last-child){
+					margin-right: .08rem;
+				}
+			}
+			.moneylimit{
+
+			}
+			.timedistanceWrap{
+				color: #999;
+				.timed{
+					color: @main-blue;
+				}
+			}
+		}	
+	}
+}
