@@ -30,12 +30,13 @@
 			align-items: center;
 		  white-space: nowrap;
 		  overflow-x: auto;
-		  span {
+		  .search-word {
 		  	color: @white;
+		  	&:not(:last-child){
+					margin-right: .4rem;
+				}
 		  }
-			span:not(:last-child){
-				margin-right: .4rem;
-			}
+		  
 		} 	
 	}
 }
