@@ -25,6 +25,8 @@ var app = express()
 /* start 模拟接口 */
 var appData = require('../server/data.json')
 var hotWords = appData.hot_search_word
+var sellers_simple = appData.sellers_simple
+var sellersArr = appData.sellers
 
 var apiRoutes = express.Router()
 
@@ -34,7 +36,18 @@ apiRoutes.get('/getHotWords', function (req, res) {
     data: hotWords
   });
 })
-
+apiRoutes.get('/sellersSimple', function (req, res) {
+  res.json({
+    errno: 0,
+    data: sellers_simple
+  });
+})
+apiRoutes.get('/sellers', function (req, res) {
+  res.json({
+    errno: 0,
+    data: sellersArr
+  });
+})
 app.use('/api', apiRoutes)
 /* end 模拟接口 */
 

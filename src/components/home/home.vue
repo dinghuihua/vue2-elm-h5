@@ -124,7 +124,7 @@
     <!-- 推荐商家 -->
     <div class="index-seller">
       <h3 class="title">推荐商家</h3>
-      <seller-list></seller-list>
+      <seller-list v-if="sellerListArr.length" :sellers="sellerListArr"></seller-list>
     </div>
     <!-- 底部的固定导航栏 -->
     <footer-nav></footer-nav>
@@ -145,8 +145,12 @@ export default {
   data () {
     return {
       showThePage: false, // 是否展示当前页面
-      hotWords: []
+      hotWords: [],
+      sellerListArr: []
     }
+  },
+  beforeMount () {
+    this.getSellerList()
   },
   mounted () {
     this.$store.dispatch('setLoading', true)
@@ -167,6 +171,14 @@ export default {
       axios.get('/api/getHotWords').then(response => {
         if (response.data.errno === ERR_OK) {
           this.hotWords = response.data.data
+        }
+      })
+    },
+    getSellerList () {
+      axios.get('/api/sellersSimple').then(response => {
+        if (response.data.errno === ERR_OK) {
+          this.sellerListArr = response.data.data
+          console.log(this.sellerListArr)
         }
       })
     }

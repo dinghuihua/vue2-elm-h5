@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import FooterNav from '../common/footer_nav/footer_nav'
+import FooterNav from '../common/footerNav/footer_nav'
 export default {
   name: 'discover',
   data () {
