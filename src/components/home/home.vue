@@ -149,7 +149,8 @@ export default {
       sellerListArr: []
     }
   },
-  beforeMount () {
+  created () {
+    this.getHotWords()
     this.getSellerList()
   },
   mounted () {
@@ -159,7 +160,6 @@ export default {
       this.$store.dispatch('setLoading', false) // loading 隐藏
       this.showThePage = true
     }, time)
-    this.getHotWords()
   },
   computed: {
     ...mapGetters([

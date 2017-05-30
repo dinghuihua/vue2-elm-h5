@@ -48,6 +48,7 @@
   "sellers_simple": [
     {
       "id": "s100001",
+      "path": "/s100001",
       "name": "粥品香坊（回龙观）",
       "brand": true,
       "bao": true,
@@ -60,14 +61,16 @@
       "avgPrice": 19,
       "deliveryPrice": 4,
       "sellCount": 90,
+      "distance": 1.4,
       "avatar": "http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg"
     },
     {
       "id": "s100002",
+      "path": "/s100002",
       "name": "麦当劳",
       "brand": true,
       "bao": true,
-      "piao": true,
+      "piao": false,
       "zhun": true,
       "description": "蜂鸟专送",
       "deliveryTime": 38,
@@ -76,22 +79,25 @@
       "avgPrice": 19,
       "deliveryPrice": 4,
       "sellCount": 90,
+      "distance": 1.5,
       "avatar": "http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg"
     },
     {
-      "id": "s100002",
+      "id": "s100003",
+      "path": "/s100003",
       "name": "肯德基",
-      "brand": true,
+      "brand": false,
       "bao": true,
       "piao": true,
-      "zhun": true,
+      "zhun": false,
       "description": "蜂鸟专送",
       "deliveryTime": 38,
-      "score": 4.2,
+      "score": 3.2,
       "minPrice": 20,
-      "avgPrice": 19,
+      "avgPrice": 20,
       "deliveryPrice": 4,
       "sellCount": 90,
+      "distance": 2.1,
       "avatar": "http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg"
     }
   ],

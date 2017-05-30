@@ -4,6 +4,7 @@ import Home from '@/components/home/home'
 import Discover from '@/components/discover/discover'
 import Order from '@/components/order/order'
 import Profile from '@/components/profile/profile'
+import Shop from '@/components/shop/shop'
 
 Vue.use(Router)
 
@@ -32,6 +33,11 @@ export default new Router({
       path: '/profile',
       name: 'Profile',
       component: Profile
+    },
+    {
+      path: '/shop',
+      name: 'Shop',
+      component: Shop
     }
   ]
 })
