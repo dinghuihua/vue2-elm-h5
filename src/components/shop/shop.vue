@@ -1,5 +1,7 @@
 <template>
-  <div>shop</div>
+  <div class="shop">
+    
+  </div>
 </template>
 <script>
   export default {
@@ -12,8 +14,11 @@
     computed: {
       shop () {
         // 通过id找到store中对应店铺信息
-        return this.$store.getters.getShopInfo[this.$route.params.id]
+        return this.$store.getters.getShopInfo[this.$route.query.id]
       }
+    },
+    mounted () {
+      console.log(this.shop)
     }
   }
 </script>

@@ -1,7 +1,7 @@
 <style lang="less" src="./seller_list.less" scoped></style>
 <template>
   <ul>
-    <li class="shop-item" v-for="item in sellers" @click="toDetail(item.path)">
+    <li class="shop-item" v-for="item in sellers" @click="toDetail(item.id)">
       <div class="logo">
         <!-- <img src="/static/images/shop-logo.png"> -->
         <img :src="item.avatar">
@@ -30,7 +30,7 @@
           </div>
           <div class="deliveryWrap">
             <span class="delivery" v-if="item.zhun">准时达</span>
-            <span class="delivery type">{{item.description}}</span>
+            <span class="delivery type" v-if="item.description">{{item.description}}</span>
           </div>
         </section>
         <section class="line-wrapper">
@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     toDetail (id) {
-      this.router.push({path: 'shop', query: { id: id }})
+      this.$router.push({path: 'shop', query: { id: id }})
     }
   }
 }
