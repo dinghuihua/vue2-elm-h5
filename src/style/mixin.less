@@ -12,3 +12,13 @@
 	display: flex;
 	justify-content: @type;
 }
+
+// 根据dpr不同 选择不同的背景图片
+.bg-image(@base-url){
+	background-image: url("@{base-url}@2x.png");
+	@media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3){
+		background-image: url("@{base-url}@3x.png");
+	}
+}
+
+// @base-url: "http://assets.fnord.com";  background-image: url("@{base-url}/images/bg.png");

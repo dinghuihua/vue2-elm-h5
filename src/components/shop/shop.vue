@@ -1,9 +1,11 @@
+<style lang="less" src="./shop.less"></style>
 <template>
-  <div class="shop">
-    
+  <div class="shop-wrapper">
+    <v-header :seller="shop"></v-header>
   </div>
 </template>
 <script>
+  import Header from '../common/shopHeader/shop_header.vue'
   export default {
     name: 'shop',
     data () {
@@ -19,6 +21,9 @@
     },
     mounted () {
       console.log(this.shop)
+    },
+    components: {
+      'v-header': Header
     }
   }
 </script>

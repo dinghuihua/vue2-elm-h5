@@ -1,0 +1,111 @@
+@import '../../../style/mixin.less';
+.shop-header{
+	position: relative;
+	background: rgba(7, 17, 27, 0.5);
+	color: @white;
+	.content-wrapper{
+		padding: 0.64rem 0.32rem 0.48rem 0.64rem;
+		font-size: 0;
+		.avatar{
+			display: inline-block;
+			img{
+				width: 1.706667rem;
+				height: 1.706667rem;
+				border-radius: 4px;
+			}
+		}
+		.content{
+			display: inline-block;
+			vertical-align: top;
+			padding-left: 0.426667rem;
+			.brand::before{
+				display: inline-block;
+				vertical-align: top;
+				height: 0.48rem;
+				line-height: .48rem;
+				margin-right: 0.16rem;
+				padding: 0 0.066667rem;
+				content: '品牌';
+				background-color: red;
+				font-weight: 700;
+		    font-size: .3rem;
+			}
+			.title{
+				margin: 0.053333rem 0 0.213333rem;
+				font-size: 0.426667rem;
+				font-weight: bold;
+				line-height: 0.48rem;
+			}
+			.description{
+				line-height: 0.32rem;
+				margin-bottom: 0.266667rem;
+				font-size: 0.32rem;
+				font-weight: 200;
+				span:not(:last-child)::after{
+					content: '/';    
+					margin-left: 0.08rem;
+    			color: #ddd;
+				}
+			}
+			.support{
+				display: inline-block;
+				font-size: 0.266667rem;
+				font-weight: 200;
+				line-height: 0.32rem;
+				.sign::after{
+					display: inline-block;
+					width: 0.32rem;
+					height: 0.32rem;
+					text-align: center;
+					margin-right: 0.053333rem;
+					border-radius: 0.026667rem;
+					background-color: @white;
+				}
+				.decrease::after{
+					content: '减';
+					color: red;
+				}
+			}
+		}
+	}
+	.bulletin-wrapper{
+		position: relative;
+		.text-ellipsis;
+		padding: 0 0.586667rem 0 0.32rem;
+		height: 0.746667rem;
+		line-height: 0.746667rem;
+		background: rgba(7, 17, 27, .2);
+		.bulletin-icon{
+			display: inline-block;
+			vertical-align: top;
+			margin-top: 0.213333rem;
+			background-image: url('./bulletin@2x.png');
+			width: 0.586667rem;
+			height: 0.32rem;
+			background-repeat: no-repeat;
+			background-size: 0.586667rem 0.32rem;
+		}
+		.text{
+			font-weight: 200;
+			font-size: 0.266667rem;
+		}
+		.arrow-right{
+			position: absolute;
+			right: 0.32rem;
+			top: 0;
+			font-weight: bold;
+		}
+	}
+	.background{
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		z-index: -1;
+		filter: blur(10px);
+	}
+	.detail{
+
+	}
+}

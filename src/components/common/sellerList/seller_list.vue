@@ -30,7 +30,7 @@
           </div>
           <div class="deliveryWrap">
             <span class="delivery" v-if="item.zhun">准时达</span>
-            <span class="delivery type" v-if="item.description">{{item.description}}</span>
+            <span class="delivery type" v-if="item.is_fengniao">蜂鸟专送</span>
           </div>
         </section>
         <section class="line-wrapper">

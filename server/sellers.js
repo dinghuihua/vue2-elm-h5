@@ -7,6 +7,7 @@ export var shopInfo = {
     "bao": true, // 保
     "piao": true, // 票
     "zhun": true, // 准 是否准时达
+    "is_fengniao": true, //是否是蜂鸟配送
     "description": "蜂鸟专送",
     "deliveryTime": 38, // 平均用时（分钟）
     "score": 4.2,  // 店铺综合评分
@@ -1391,6 +1392,7 @@ export var shopInfo = {
     "bao": true, // 保
     "piao": true, // 票
     "zhun": true, // 准 是否准时达
+    "is_fengniao": true,
     "description": "蜂鸟专送",
     "deliveryTime": 38, // 平均用时（分钟）
     "score": 4.9,  // 店铺综合评分
@@ -2775,7 +2777,8 @@ export var shopInfo = {
     "bao": true, // 保
     "piao": true, // 票
     "zhun": false, // 准 是否准时达
-    "description": "",
+    "is_fengniao": false,
+    "description": "商家配送",
     "deliveryTime": 38, // 平均用时（分钟）
     "score": 3.2,  // 店铺综合评分
     "minPrice": 25,  // 起送金额
@@ -4159,6 +4162,7 @@ export var shopInfo = {
     "bao": true, // 保
     "piao": true, // 票
     "zhun": false, // 准 是否准时达
+    "is_fengniao": true,
     "description": "蜂鸟专送",
     "deliveryTime": 27, // 平均用时（分钟）
     "score": 4.7,  // 店铺综合评分
@@ -5543,7 +5547,8 @@ export var shopInfo = {
     "bao": true, // 保
     "piao": true, // 票
     "zhun": false, // 准 是否准时达
-    "description": "蜂鸟专送",
+    "is_fengniao": false,
+    "description": "商家配送",
     "deliveryTime": 27, // 平均用时（分钟）
     "score": 4.7,  // 店铺综合评分
     "minPrice": 25,  // 起送金额
@@ -6927,6 +6932,7 @@ export var shopInfo = {
     "bao": false, // 保
     "piao": true, // 票
     "zhun": true, // 准 是否准时达
+    "is_fengniao": true,
     "description": "蜂鸟专送",
     "deliveryTime": 27, // 平均用时（分钟）
     "score": 4.7,  // 店铺综合评分
@@ -8311,7 +8317,8 @@ export var shopInfo = {
     "bao": true, // 保
     "piao": true, // 票
     "zhun": true, // 准 是否准时达
-    "description": "蜂鸟专送",
+    "is_fengniao": false,
+    "description": "商家配送",
     "deliveryTime": 27, // 平均用时（分钟）
     "score": 4.8,  // 店铺综合评分
     "minPrice": 25,  // 起送金额
@@ -9695,7 +9702,8 @@ export var shopInfo = {
     "bao": true, // 保
     "piao": true, // 票
     "zhun": false, // 准 是否准时达
-    "description": "蜂鸟专送",
+    "is_fengniao": false,
+    "description": "商家配送",
     "deliveryTime": 40, // 平均用时（分钟）
     "score": 3.8,  // 店铺综合评分
     "minPrice": 25,  // 起送金额
@@ -11079,6 +11087,7 @@ export var shopInfo = {
     "bao": true, // 保
     "piao": true, // 票
     "zhun": true, // 准 是否准时达
+    "is_fengniao": true,
     "description": "蜂鸟专送",
     "deliveryTime": 27, // 平均用时（分钟）
     "score": 4.8,  // 店铺综合评分
@@ -12463,7 +12472,8 @@ export var shopInfo = {
     "bao": true, // 保
     "piao": false, // 票
     "zhun": true, // 准 是否准时达
-    "description": "蜂鸟专送",
+    "is_fengniao": false,
+    "description": "商家配送",
     "deliveryTime": 27, // 平均用时（分钟）
     "score": 4.7,  // 店铺综合评分
     "minPrice": 25,  // 起送金额
