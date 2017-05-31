@@ -40,8 +40,7 @@
           <div class="detail-main">
             <h1 class="name">{{seller.name}}</h1>
             <div class="star-wrapper">
-              星星组件
-             <!--  <star :size="48" :score="seller.score"></star> -->
+              <star :size="48" :score="seller.score"></star>
             </div>
             <div class="title">
               <div class="line"></div>
@@ -73,6 +72,7 @@
   </header> 
 </template>
 <script>
+  import star from '../star/star'
   export default{
     props: ['seller'],
     data () {
@@ -87,6 +87,9 @@
       showDetail () {
         this.detailShow = !this.detailShow
       }
+    },
+    components: {
+      star
     }
   }
 </script>

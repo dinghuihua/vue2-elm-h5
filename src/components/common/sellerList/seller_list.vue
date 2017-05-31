@@ -3,7 +3,6 @@
   <ul>
     <li class="shop-item" v-for="item in sellers" @click="toDetail(item.id)">
       <div class="logo">
-        <!-- <img src="/static/images/shop-logo.png"> -->
         <img :src="item.avatar">
       </div>
       <div class="main">
@@ -25,7 +24,8 @@
         </section>
         <section class="line-wrapper">
           <div class="rateWrap">
-            <span>{{item.score}}</span>
+            <star :size="24" :score="item.score"></star>
+            <span class="rate-score">{{item.score}}</span>
             <span>月售{{item.sellCount}}单</span>
           </div>
           <div class="deliveryWrap">
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import star from '../star/star'
 export default {
   name: 'sellerList',
   props: ['sellers'],
@@ -62,6 +63,9 @@ export default {
     toDetail (id) {
       this.$router.push({path: 'shop', query: { id: id }})
     }
+  },
+  components: {
+    star
   }
 }
 </script>

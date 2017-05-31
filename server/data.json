@@ -80,7 +80,7 @@
       "deliveryPrice": 4,
       "sellCount": 90,
       "distance": 730,
-      "avatar": "http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg"
+      "avatar": "/static/images/sellers/logo-100002.jpg"
     },
     {
       "id": "100003",
@@ -98,7 +98,7 @@
       "deliveryPrice": 4,
       "sellCount": 90,
       "distance": 1500,
-      "avatar": "http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg"
+      "avatar": "/static/images/sellers/logo-100003.png"
     },
     {
       "id": "100004",
@@ -116,11 +116,11 @@
       "deliveryPrice": 4,
       "sellCount": 90,
       "distance": 1500,
-      "avatar": "http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg"
+      "avatar": "/static/images/sellers/logo-100004.jpeg"
     },
     {
       "id": "100005",
-      "name": "汉堡王（远大路金源店21615）",
+      "name": "焦耳川式快餐（华宇店）",
       "brand": true,
       "bao": true,
       "piao": true,
@@ -134,11 +134,11 @@
       "deliveryPrice": 4,
       "sellCount": 90,
       "distance": 1500,
-      "avatar": "http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg"
+      "avatar": "/static/images/sellers/logo-100005.jpeg"
     },
     {
       "id": "100006",
-      "name": "汉堡王（远大路金源店21615）",
+      "name": "汉拿山（金源店）",
       "brand": true,
       "bao": false,
       "piao": true,
@@ -152,7 +152,7 @@
       "deliveryPrice": 4,
       "sellCount": 90,
       "distance": 1500,
-      "avatar": "http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg"
+      "avatar": "/static/images/sellers/logo-100006.jpeg"
     },
     {
       "id": "100007",
@@ -170,7 +170,7 @@
       "deliveryPrice": 4,
       "sellCount": 90,
       "distance": 1500,
-      "avatar": "http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg"
+      "avatar": "/static/images/sellers/logo-100007.png"
     },
     {
       "id": "100008",
@@ -188,7 +188,7 @@
       "deliveryPrice": 4,
       "sellCount": 90,
       "distance": 1500,
-      "avatar": "http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg"
+      "avatar": "/static/images/sellers/logo-100008.jpeg"
     },
     {
       "id": "100009",
@@ -206,7 +206,7 @@
       "deliveryPrice": 4,
       "sellCount": 90,
       "distance": 1500,
-      "avatar": "http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg"
+      "avatar": "/static/images/sellers/logo-100009.jpeg"
     },
     {
       "id": "100010",
@@ -224,7 +224,7 @@
       "deliveryPrice": 4,
       "sellCount": 90,
       "distance": 1500,
-      "avatar": "http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg"
+      "avatar": "/static/images/sellers/logo-100010.jpeg"
     }
   ]
 }
