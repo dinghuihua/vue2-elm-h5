@@ -11,8 +11,7 @@ export default new Router({
     {
       path: '/index',
       name: 'Home',
-      component: (resolve) => require(['../components/home/home.vue'], resolve) //懒加载
-      // component: Home
+      component: (resolve) => require(['../components/home/home.vue'], resolve) // 懒加载
     },
     {
       path: '/discover',

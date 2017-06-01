@@ -3,19 +3,21 @@
     <transition name="router-fade" mode="out-in">
       <router-view></router-view>
     </transition>
-    <div class="loading_jump" v-if="isLoading">
-      <div class="loading_jump1">正在加载中...</div>
-    </div>
+    <loading v-if="isLoading"></loading>
   </div>
 </template>
 
 <script>
+  import loading from './components/common/loading/loading'
   export default {
     name: 'app',
     computed: {
       isLoading () {
         return this.$store.getters.getLoading
       }
+    },
+    components: {
+      loading
     }
   }
 </script>

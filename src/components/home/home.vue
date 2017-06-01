@@ -125,6 +125,13 @@
     <div class="index-seller">
       <h3 class="title">推荐商家</h3>
       <seller-list v-if="sellerListArr.length" :sellers="sellerListArr"></seller-list>
+      <div class="loading-wrapper" v-show="loadMore">
+        <img src="/static/loading.gif">
+        <span>正在加载...</span>
+      </div>
+      <div class="noMore-wrapper" v-show="noMore">
+        <span>主人~已经到底啦~</span>
+      </div>
     </div>
     <!-- 底部的固定导航栏 -->
     <footer-nav></footer-nav>
@@ -147,7 +154,9 @@ export default {
       showThePage: false, // 是否展示当前页面
       hotWords: [],
       sellerListArr: [],
-      isLoadingMore: false
+      isLoadingMore: false, // score中的加载更多
+      loadMore: false, // 列表底部的加载更多
+      noMore: false
     }
   },
   mounted () {
@@ -156,11 +165,14 @@ export default {
     this.getSellerList()
 
     // 模拟实际请求需要的时间
-    let time = Math.floor(Math.random() * 1000)
+    let time = Math.floor(Math.random() * 2000)
     setTimeout(() => {
       this.$store.dispatch('setLoading', false) // loading 隐藏
       this.showThePage = true
     }, time)
+
+    // 监听页面的滚动事件
+    window.addEventListener('scroll', this.dispatchLoad, false)
   },
   computed: {
     ...mapGetters([
@@ -176,11 +188,35 @@ export default {
       })
     },
     getSellerList () {
-      axios.get('/api/sellersSimple').then(response => {
+      axios.get('/api/sellersSimple', {
+        page: 1,
+        limit: 5
+      }).then(response => {
         if (response.data.errno === ERR_OK) {
           this.sellerListArr = response.data.data
         }
       })
+    },
+    // 触发滚动加载更多的模拟数据
+    dispatchLoad () {
+      var dscrollTop = document.body.scrollTop || document.documentElement.scrollTop
+      if (document.documentElement.offsetHeight <= (dscrollTop + window.innerHeight + 1)) {
+        console.info('触发加载')
+        setTimeout(() => {
+          this.$store.dispatch('setLoading', false) // loading 隐藏
+          this.showThePage = true
+        }, 2000)
+        if (this.sellerListArr.length < 50) {
+          this.loadMore = true
+          // 假装我又去请求了数据
+          setTimeout(() => {
+            this.sellerListArr = this.sellerListArr.concat(this.sellerListArr)
+          }, 1000)
+        } else {
+          this.loadMore = false
+          this.noMore = true
+        }
+      }
     }
   },
   components: {
