@@ -75,8 +75,8 @@
   </header> 
 </template>
 <script>
-  import star from '../star/star'
-  import backBtn from '../goback/back_btn'
+  import star from '@/components/common/star/star'
+  import backBtn from '@/components/common/goback/back_btn'
   export default{
     props: ['seller'],
     data () {

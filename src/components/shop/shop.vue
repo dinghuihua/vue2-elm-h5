@@ -1,16 +1,34 @@
-<style lang="less" src="./shop.less"></style>
+<style lang="less" src="./shop.less" scoped></style>
 <template>
   <div class="shop-wrapper">
-    <v-header :seller="shop"></v-header>
+    <s-header :seller="shop"></s-header>
+    <div class="tab">
+      <div class="tab-item" @click="showContent='goods'">
+        <span :class="{'active': showContent === 'goods'}">商品</span>
+      </div>
+      <div class="tab-item" @click="showContent='ratings'">
+        <span :class="{'active': showContent === 'ratings'}">评论</span>
+      </div>
+      <div class="tab-item" @click="showContent='seller'">
+        <span :class="{'active': showContent === 'seller'}">商家</span>
+      </div>
+    </div>
+    <s-goods :seller="shop" v-show="showContent === 'goods'"></s-goods>
+    <s-ratings :seller="shop" v-show="showContent === 'ratings'"></s-ratings>
+    <s-seller :seller="shop" v-show="showContent === 'seller'"></s-seller>
   </div>
 </template>
 <script>
-  import Header from '../common/shopHeader/shop_header.vue'
+  import Header from './child/shopHeader/shop_header.vue'
+  import Goods from './child/goods.vue'
+  import Ratings from './child/ratings.vue'
+  import Seller from './child/seller.vue'
   export default {
     name: 'shop',
     data () {
       return {
-        showThePath: true
+        showThePath: true,
+        showContent: 'goods' // 默认显示商品列表
       }
     },
     computed: {
@@ -20,10 +38,13 @@
       }
     },
     mounted () {
-      console.log(this.shop)
+      console.log(this.showContent)
     },
     components: {
-      'v-header': Header
+      's-header': Header,
+      's-goods': Goods,
+      's-ratings': Ratings,
+      's-seller': Seller
     }
   }
 </script>
