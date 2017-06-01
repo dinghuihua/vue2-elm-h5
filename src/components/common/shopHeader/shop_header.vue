@@ -1,12 +1,15 @@
-<style lang="less" src="./shop_header.less"></style>
+<style lang="less" src="./shop_header.less" scoped></style>
 <template>
   <header class="shop-header">
+    <div class="backBtn-wrapper">
+      <back-btn></back-btn>
+    </div>
     <div class="content-wrapper">
       <div class="avatar">
         <img :src="seller.avatar">
       </div>
       <div class="content">
-        <div class="title brand">
+        <div class="title" :class="{'brand': seller.brand}">
           <span>{{seller.name}}</span>
         </div>
         <p class="description">
@@ -73,6 +76,7 @@
 </template>
 <script>
   import star from '../star/star'
+  import backBtn from '../goback/back_btn'
   export default{
     props: ['seller'],
     data () {
@@ -89,7 +93,7 @@
       }
     },
     components: {
-      star
+      star, backBtn
     }
   }
 </script>

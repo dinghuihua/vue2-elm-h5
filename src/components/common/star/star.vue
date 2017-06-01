@@ -43,7 +43,7 @@
     }
   }
 </script>
-<style lang="less">
+<style lang="less" scoped>
   .bg-image(@url) {
     background-image: url("@{url}@2x.png");
     @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
