@@ -1,11 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/home/home'
-import Discover from '@/components/discover/discover'
-import Order from '@/components/order/order'
-import Profile from '@/components/profile/profile'
-import Shop from '@/components/shop/shop'
-
 Vue.use(Router)
 
 export default new Router({
@@ -17,27 +11,28 @@ export default new Router({
     {
       path: '/index',
       name: 'Home',
-      component: Home
+      component: (resolve) => require(['../components/home/home.vue'], resolve) //懒加载
+      // component: Home
     },
     {
       path: '/discover',
       name: 'Discover',
-      component: Discover
+      component: (resolve) => require(['../components/discover/discover.vue'], resolve)
     },
     {
       path: '/order',
       name: 'Order',
-      component: Order
+      component: (resolve) => require(['../components/order/order.vue'], resolve)
     },
     {
       path: '/profile',
       name: 'Profile',
-      component: Profile
+      component: (resolve) => require(['../components/profile/profile.vue'], resolve)
     },
     {
       path: '/shop',
       name: 'Shop',
-      component: Shop
+      component: (resolve) => require(['../components/shop/shop.vue'], resolve)
     }
   ]
 })

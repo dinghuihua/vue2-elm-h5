@@ -146,16 +146,17 @@ export default {
     return {
       showThePage: false, // 是否展示当前页面
       hotWords: [],
-      sellerListArr: []
+      sellerListArr: [],
+      isLoadingMore: false
     }
-  },
-  created () {
-    this.getHotWords()
-    this.getSellerList()
   },
   mounted () {
     this.$store.dispatch('setLoading', true)
-    let time = Math.floor(Math.random() * 1000) // 模拟请求等待需要的时间
+    this.getHotWords()
+    this.getSellerList()
+
+    // 模拟实际请求需要的时间
+    let time = Math.floor(Math.random() * 1000)
     setTimeout(() => {
       this.$store.dispatch('setLoading', false) // loading 隐藏
       this.showThePage = true
@@ -178,7 +179,6 @@ export default {
       axios.get('/api/sellersSimple').then(response => {
         if (response.data.errno === ERR_OK) {
           this.sellerListArr = response.data.data
-          console.log(this.sellerListArr)
         }
       })
     }
