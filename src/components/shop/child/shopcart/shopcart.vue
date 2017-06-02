@@ -1,19 +1,78 @@
+<style lang="less" src="./shopcart.less" scoped></style>
 <template>
 	<div class="shopcart">
-    
+    <div class="content">
+      <div class="con-left">
+        <div class="logo-wrapper">
+          <div class="logo highlight">
+            <i class="icon i-cart highlight"></i>
+          </div>
+          <div class="num">3</div>
+        </div>
+        <div class="price highlight">￥20</div>
+        <div class="desc">另需配送费￥{{deliveryPrice}}元</div>
+      </div>
+      <div class="con-right">
+        <div class="pay not-enough">￥{{minPrice}}起送</div>
+      </div>
+    </div>
+    <!-- 购车车弹出层food列表 -->
+    <div class="shopcart-list" v-show="listShow">
+      <div class="list-header">
+        <h1 class="title">购物车</h1>
+        <span class="empty">清空</span>
+      </div>
+      <div class="list-content">
+        <ul>
+          <li class="food">
+            <span class="name">娃娃菜炖豆腐</span>
+            <div class="price">
+              <span>￥30</span>
+            </div>
+          </li>
+          <li class="food">
+            <span class="name">娃娃菜炖豆腐</span>
+            <div class="price">
+              <span>￥30</span>
+            </div>
+          </li>
+          <li class="food">
+            <span class="name">娃娃菜炖豆腐</span>
+            <div class="price">
+              <span>￥30</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- 弹出层后 其他部分蒙层 -->
+    <transition name="fade">
+      <div class="list-mask" @click="hideList()" v-show="listShow"></div>
+    </transition>
   </div>
 </template>
 <script>
-  
-</script>
-<style lang="less" scoped>
-  .shopcart{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    z-index: 50;
-    width: 100%;
-    height: 1.28rem;
-    background-color: #000;
+  export default {
+    props: {
+      selectFoods: {
+        type: Array,
+        default () {
+          return []
+        }
+      },
+      deliveryPrice: {
+        type: Number,
+        default: 0
+      },
+      minPrice: {
+        type: Number,
+        default: 0
+      }
+    },
+    data () {
+      return {
+        listShow: true
+      }
+    }
   }
-</style>
+</script>

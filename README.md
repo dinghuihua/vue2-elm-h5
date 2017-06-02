@@ -151,11 +151,11 @@ iscroll的改良版。github地址：https://github.com/ustbhuangyi/better-scrol
 
 ```
 created (){
-	this.$nextTick(() => {
-		this._initScroll()
-		// 初始化计算foodList的高度
-		this._calculateHeight()
-	})
+  this.$nextTick(() => {
+	 this._initScroll()
+	 // 初始化计算foodList的高度
+	 this._calculateHeight()
+  })
 }
 methods: {
   _initScroll () {
@@ -229,6 +229,8 @@ selectMenu (index, event) {
 	this.foodScroll.scrollToElement(el, 300)
 }
 ```
+
+#### 五、
 
 >  如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
 
