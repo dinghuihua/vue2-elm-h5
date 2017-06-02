@@ -32,18 +32,23 @@
                   <span class="now">{{food.price}}</span>
                   <span class="old" v-if="food.oldPrice">{{food.oldPrice}}</span>
                 </div>
+                <div class="cartcontrol-wrapper">
+                  <!-- 父组件可以在使用子组件的地方直接用 v-on (或@) 来监听子组件触发的事件。 -->
+                  <cartcontrol @add="addFood" :food="food"></cartcontrol>
+                </div>
               </div>
             </li>
           </ul>
         </li>
       </ul>
     </div>
-    <shopcart :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
+    <shopcart ref="shopcart" :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
   </div>
 </template>
 <script>
   import BScroll from 'better-scroll'
   import shopcart from '../shopcart/shopcart'
+  import cartcontrol from '../cartcontrol/cartcontrol'
 
   export default {
     props: ['seller'],
@@ -116,10 +121,12 @@
         let foodList = this.$refs.foodsWrapper.getElementsByClassName('food-list-hook')
         let el = foodList[index]
         this.foodScroll.scrollToElement(el, 300)
+      },
+      addFood (event) {
       }
     },
     components: {
-      shopcart
+      shopcart, cartcontrol
     }
   }
 </script>

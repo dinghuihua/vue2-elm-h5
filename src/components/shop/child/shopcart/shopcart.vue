@@ -4,12 +4,12 @@
     <div class="content">
       <div class="con-left">
         <div class="logo-wrapper">
-          <div class="logo highlight">
-            <i class="icon i-cart highlight"></i>
+          <div class="logo" :class="{'highlight': totalCount>0}">
+            <i class="icon i-cart" :class="{'highlight': totalCount>0}"></i>
           </div>
-          <div class="num">3</div>
+          <div class="num" v-show="totalCount>0">{{totalCount}}</div>
         </div>
-        <div class="price highlight">￥20</div>
+        <div class="price" :class="{'highlight': totalPrice>0}">￥{{totalPrice}}</div>
         <div class="desc">另需配送费￥{{deliveryPrice}}元</div>
       </div>
       <div class="con-right">
@@ -71,7 +71,23 @@
     },
     data () {
       return {
-        listShow: true
+        listShow: false
+      }
+    },
+    computed: {
+      totalCount () {
+        let count = 0
+        this.selectFoods.forEach((food) => {
+          count += food.count
+        })
+        return count
+      },
+      totalPrice () {
+        let total = 0
+        this.selectFoods.forEach((food) => {
+          total += food.price * food.count
+        })
+        return total
       }
     }
   }

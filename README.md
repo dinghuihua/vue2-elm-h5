@@ -207,10 +207,11 @@ computed: {
   }
 }
 ```
-要给菜单项绑定激活样式
+[要给菜单项绑定激活样式]
+获取到currentIndex后，在menu-item绑定一个class:class="{'current':currentIndex === index}",当currentIndex和menu-item对应的index相等时，设置current的样式。这样就可以左右联动了。
 
 ```
-<li v-for="(item, index) in goods" :class="{'current': currentIndex === index}" @click="selectMenu(index, $event)">
+<li class="menu-item" v-for="(item, index) in goods" :class="{'current': currentIndex === index}" @click="selectMenu(index, $event)">
   
 </li>
 ```
@@ -230,8 +231,39 @@ selectMenu (index, event) {
 }
 ```
 
-#### 五、
+#### 五、添加购车组件 
+>cartcontrol组件
+
+* 点击‘+’加入购物车时。 需要给food动态添加一个count属性，用来记录商品数量，但我们自己新增的属性 Object.defineProperty() 检查不到， 因此要利用vue去给对象this.food新增一个属性count
+
+大致代码如下：
+
+```
+methods: {
+	addCart (event) {
+	  if (!this.food.count) {
+	    /* this.food.count = 1 新增属性 Object.defineProperty()检查不到 */
+	    Vue.set(this.food, 'count', 1)
+	  } else {
+	    this.food.count ++
+	  }
+	  // 向父组件传递事件
+	  this.$emit('add', event.target)
+	},
+	decreaseCart (event) {
+	  if (this.food.count) {
+	    this.food.count --
+	  }
+	}
+}
+```
+* 父组件goods.vue可以监听来自子组件cartcontrol的事件
+
+```
+<!-- 父组件可以在使用子组件的地方直接用 v-on (或@) 来监听子组件触发的事件。 -->
+<cartcontrol @add="addFood" :food="food"></cartcontrol>
+```
+
 
 >  如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
 
->  或者您可以 "follow" 一下，我会不断开源更多的有趣的项目
