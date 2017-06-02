@@ -14,7 +14,7 @@
     <!-- 右侧食品列表 -->
     <div class="foods-wrapper" ref="foodsWrapper">
       <ul>
-        <li class="" v-for="item in goods">
+        <li class="food-list-hook" v-for="item in goods">
           <h1 class="title">{{item.name}}</h1>
           <ul>
             <li v-for="food in item.foods" class="food-item">
@@ -57,6 +57,7 @@
       this.signClassMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee']
       this.$nextTick(() => {
         this._initScroll()
+        this._calculateHeight()
       })
     },
     mounted () {
@@ -75,17 +76,6 @@
           }
         }
         return 0
-      },
-      selectFoods () {
-        let foods = []
-        this.goods.forEach((good) => {
-          good.foods.forEach((food) => {
-            if (food.count) {
-              foods.push(food)
-            }
-          })
-        })
-        return foods
       }
     },
     methods: {
@@ -97,6 +87,24 @@
           click: true,
           probeType: 3
         })
+        this.foodScroll.on('scroll', (pos) => {
+          this.scrollY = Math.abs(Math.round(pos.y))
+        })
+      },
+      _calculateHeight () {
+        let foodList = this.$refs.foodsWrapper.getElementsByClassName('food-list-hook')
+        let height = 0
+        this.listHeight.push(height)
+        for (var i = 0; i < foodList.length; i++) {
+          let item = foodList[i]
+          height += item.clientHeight
+          this.listHeight.push(height)
+        }
+      },
+      selectMenu (index, event) {
+        let foodList = this.$refs.foodsWrapper.getElementsByClassName('food-list-hook')
+        let el = foodList[index]
+        this.foodScroll.scrollToElement(el, 300)
       }
     },
     components: {

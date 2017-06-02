@@ -148,10 +148,13 @@ iscroll的改良版。github地址：https://github.com/ustbhuangyi/better-scrol
  
 实例化的时候需要一个dom，注意要在dom渲染完成后（this.$nextTick）初始化better-scroll才能生效, 部分代码如下
 将内层的高度与外层的wrapper的高度做比较，内层比较高的时候就会产生滚动
+
 ```
 created (){
 	this.$nextTick(() => {
 		this._initScroll()
+		// 初始化计算foodList的高度
+		this._calculateHeight()
 	})
 }
 methods: {
@@ -163,10 +166,70 @@ methods: {
       click: true,
       probeType: 3
     })
+    // 给右侧的食品列表添加滚动事件， 保存滚动在y轴方向的高度
+    this.foodScroll.on('scroll', (pos) => {
+      this.scrollY = Math.abs(Math.round(pos.y))
+    })
+  }
+}
+
+```
+
+实现左菜单和右侧食品列表联动
+
+```
+// 将每个分类下的food的高度相加，得到每个分类下对应的foodlist的总高度， 然后保存在this.listHeight数组中
+_calculateHeight () {
+	let foodList = this.$refs.foodsWrapper.getElementsByClassName('food-list-hook')
+	let height = 0
+	this.listHeight.push(height)
+	for (var i = 0; i < foodList.length; i++) {
+	  let item = foodList[i]
+	  height += item.clientHeight
+	  this.listHeight.push(height)
+	}
+}
+
+```
+右侧的滚动会激活对应的菜单项
+
+```
+computed: {
+  currentIndex () {
+    for (let i = 0; i < this.listHeight.length; i++) {
+      let height1 = this.listHeight[i]
+      let height2 = this.listHeight[i + 1]
+      if (this.scrollY >= height1 && this.scrollY < height2) {
+        return i
+      }
+    }
+    return 0
   }
 }
 ```
-      
+要给菜单项绑定激活样式
+
+```
+<li v-for="(item, index) in goods" :class="{'current': currentIndex === index}" @click="selectMenu(index, $event)">
+  
+</li>
+```
+
+点击左侧菜单 => 右侧联动
+
+* 这里用了better-scroll的一个方法： scrollToElement(el, time, offsetX, offsetY, easing)
+
+滚动到某个元素，el（必填）表示 dom 元素，time 表示动画时间，offsetX 和 offsetY 表示坐标偏移量，easing 表示缓动函数
+
+
+```
+selectMenu (index, event) {
+	let foodList = this.$refs.foodsWrapper.getElementsByClassName('food-list-hook')
+	let el = foodList[index]
+	this.foodScroll.scrollToElement(el, 300)
+}
+```
+
 >  如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
 
 >  或者您可以 "follow" 一下，我会不断开源更多的有趣的项目
