@@ -129,8 +129,44 @@ css关键代码（less）
   }
 }
 ```
-#### 四、 
+注意：
 
+（1）在内容区要设置padding-bottom留出空间放关闭按钮
+
+（2）因为内容区的 min-height 是100%了，固定的底部要设置负margin，不然就高度就超了
+
+#### 四、 better-scroll 运用
+iscroll的改良版。github地址：https://github.com/ustbhuangyi/better-scroll
+
+安装
+
+ ```npm install better-scroll --save```
+ 
+引入better-scroll
+
+ ```import BScroll from 'better-scroll'```
+ 
+实例化的时候需要一个dom，注意要在dom渲染完成后（this.$nextTick）初始化better-scroll才能生效, 部分代码如下
+将内层的高度与外层的wrapper的高度做比较，内层比较高的时候就会产生滚动
+```
+created (){
+	this.$nextTick(() => {
+		this._initScroll()
+	})
+}
+methods: {
+  _initScroll () {
+    this.menuScroll = new BScroll(this.$refs.menuWrapper, {
+      click: true
+    })
+    this.foodScroll = new BScroll(this.$refs.foodsWrapper, {
+      click: true,
+      probeType: 3
+    })
+  }
+}
+```
+      
 >  如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
 
 >  或者您可以 "follow" 一下，我会不断开源更多的有趣的项目

@@ -2,7 +2,7 @@
 <template>
   <div class="goods-wrapper">
     <!-- 左侧菜单 -->
-    <div class="menu-wrapper">
+    <div class="menu-wrapper" ref="menuWrapper">
       <ul>
         <li v-for="(item, index) in goods" class="menu-item" :class="{'current': currentIndex === index}" @click="selectMenu(index, $event)">
           <span class="text">
@@ -12,7 +12,7 @@
       </ul>
     </div>
     <!-- 右侧食品列表 -->
-    <div class="foods-wrapper">
+    <div class="foods-wrapper" ref="foodsWrapper">
       <ul>
         <li class="" v-for="item in goods">
           <h1 class="title">{{item.name}}</h1>
@@ -38,9 +38,13 @@
         </li>
       </ul>
     </div>
+    <shopcart></shopcart>
   </div>
 </template>
 <script>
+  import BScroll from 'better-scroll'
+  import shopcart from '../shopcart/shopcart'
+
   export default {
     props: ['seller'],
     data () {
@@ -51,6 +55,9 @@
     },
     created () {
       this.signClassMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee']
+      this.$nextTick(() => {
+        this._initScroll()
+      })
     },
     mounted () {
       console.log(this.seller)
@@ -80,6 +87,20 @@
         })
         return foods
       }
+    },
+    methods: {
+      _initScroll () {
+        this.menuScroll = new BScroll(this.$refs.menuWrapper, {
+          click: true
+        })
+        this.foodScroll = new BScroll(this.$refs.foodsWrapper, {
+          click: true,
+          probeType: 3
+        })
+      }
+    },
+    components: {
+      shopcart
     }
   }
 </script>
