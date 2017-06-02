@@ -14,40 +14,23 @@
     <!-- 右侧食品列表 -->
     <div class="foods-wrapper">
       <ul>
-        <li class="">
-          <h1 class="title">热销榜</h1>
+        <li class="" v-for="item in goods">
+          <h1 class="title">{{item.name}}</h1>
           <ul>
-            <li class="food-item">
+            <li v-for="food in item.foods" class="food-item">
               <div class="pic">
-                <img src="http://fuss10.elemecdn.com/c/cd/c12745ed8a5171e13b427dbc39401jpeg.jpeg?imageView2/1/w/114/h/114">
+                <img :src="food.icon">
               </div>
               <div class="content">
-                <h2 class="name">皮蛋瘦肉粥</h2>
-                <p class="desc">咸粥</p>
+                <h2 class="name">{{food.name}}</h2>
+                <p class="desc" v-if="food.description">{{food.description}}</p>
                 <div class="extra">
-                  <span class="sell-count">月售229份</span>
-                  <span>好评率100%</span>
+                  <span class="sell-count">月售{{food.sellCount}}份</span>
+                  <span>好评率{{food.rating}}%</span>
                 </div>
                 <div class="price">
-                  <span class="now">10</span>
-                  <span class="old">16</span>
-                </div>
-              </div>
-            </li>
-            <li class="food-item">
-              <div class="pic">
-                <img src="http://fuss10.elemecdn.com/c/cd/c12745ed8a5171e13b427dbc39401jpeg.jpeg?imageView2/1/w/114/h/114">
-              </div>
-              <div class="content">
-                <h2 class="name">皮蛋瘦肉粥</h2>
-                <p class="desc">咸粥</p>
-                <div class="extra">
-                  <span class="sell-count">月售229份</span>
-                  <span>好评率100%</span>
-                </div>
-                <div class="price">
-                  <span class="now">10</span>
-                  <span class="old">16</span>
+                  <span class="now">{{food.price}}</span>
+                  <span class="old" v-if="food.oldPrice">{{food.oldPrice}}</span>
                 </div>
               </div>
             </li>
@@ -68,6 +51,9 @@
     },
     created () {
       this.signClassMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee']
+    },
+    mounted () {
+      console.log(this.seller)
     },
     computed: {
       goods () {
