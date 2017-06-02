@@ -20,9 +20,9 @@
 </template>
 <script>
   import Header from './child/shopHeader/shop_header.vue'
-  import Goods from './child/goods.vue'
-  import Ratings from './child/ratings.vue'
-  import Seller from './child/seller.vue'
+  import Goods from './child/goods/goods.vue'
+  import Ratings from './child/ratings/ratings.vue'
+  import Seller from './child/seller/seller.vue'
   export default {
     name: 'shop',
     data () {
