@@ -93,6 +93,7 @@
     width: 2.133333rem;
     background-color: #f3f5f7;
     .menu-item{
+      position: relative;
       display: table;
       width: 2.133333rem;
       height: 1.44rem;
@@ -102,6 +103,15 @@
         background-color: #fff;
         .text{
           border-bottom: 0;
+        }
+        &::after{
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: .08rem;
+          background-color: #3190e8;
         }
       }
       .text{

@@ -91,9 +91,45 @@ npm install vue-swipe --save
 ```
 github地址：  https://github.com/ElemeFE/vue-swipe
 
+#### 三、 商家页 - 商家优惠信息的弹出层实现 【 CSS Sticky footer布局 】
 
+介绍该布局的文章: http://www.w3cplus.com/css3/css-secrets/sticky-footers.html
+概括： 如果页面内容不够长的时候，页脚块（这里就指我们的关闭按钮）粘贴在视窗底部；如果内容足够长时，页脚块会被内容向下推送。
+布局套路如下：
 
+```
+<div class="detail">
+  <div class="detail-wrapper clearfix">
+     <!--实际内容-->
+     <div class="detail-main"></div>
+  </div>
+  <div class="detail-close"></div>
+</div>  
+```
+css关键代码（less）
 
+```
+.detail{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  height: 100%;
+  overflow: auto;
+  .detail-wrapper{
+    min-height: 100%;
+    .detail-main{
+      padding-bottom: 64px;
+    }
+  }
+  .detail-close{
+    position: relative;
+    margin: -64px auto 0;
+    clear: both;
+  }
+}
+```
+#### 四、 
 
 >  如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
 
