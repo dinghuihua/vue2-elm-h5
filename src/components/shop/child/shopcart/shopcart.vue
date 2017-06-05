@@ -13,7 +13,7 @@
         <div class="desc">另需配送费￥{{deliveryPrice}}元</div>
       </div>
       <div class="con-right">
-        <div class="pay not-enough">￥{{minPrice}}起送</div>
+        <div class="pay" :class="payClass">{{payDesc}}</div>
       </div>
     </div>
     <!-- 购车车弹出层food列表 -->
@@ -88,6 +88,23 @@
           total += food.price * food.count
         })
         return total
+      },
+      payDesc () {
+        let diff = this.minPrice - this.totalPrice
+        if (this.totalPrice === 0) {
+          return `￥${this.minPrice}起送`
+        } else if (this.totalPrice < this.minPrice) {
+          return `还差${diff}元起送`
+        } else {
+          return '去结算'
+        }
+      },
+      payClass () {
+        if (this.totalPrice < this.minPrice) {
+          return 'not-enough'
+        } else {
+          return 'enough'
+        }
       }
     }
   }
