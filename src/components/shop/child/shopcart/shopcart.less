@@ -96,6 +96,24 @@
       }
     }
   }
+  .ball-container{
+    .ball{
+      position: fixed;
+      left: 0.853333rem;  // 64/75rem
+      bottom: 0.586667rem; // 44/75rem
+      z-index: 100;
+      &.drop-enter-active, &.drop-leave-active{
+        transition: all 0.4s cubic-bezier(0.49, -0.29, 0.75, 0.41);
+        .inner{
+          width: 0.426667rem;  // 32/75rem
+          height: 0.426667rem;
+          border-radius: 50%;
+          background-color: #00a0dc;
+          transition: all 0.4s linear;
+        }
+      }
+    }
+  }
   .shopcart-list{
     position: absolute;
     top: 0;
@@ -103,6 +121,12 @@
     z-index: -1;
     width: 100%;
     transform: translate3d(0, -100%, 0);
+    &.fold-enter-active, &.fold-leave-active{
+      transition: all 0.3s;
+    }
+    &.fold-enter, &.fold-leave-active{
+      transform: translate3d(0, 0, 0);
+    }
     .list-header{
       height: 1.066667rem;
       line-height: 1.066667rem;
@@ -123,7 +147,7 @@
     .list-content{
       max-height: 5.786667rem;
       padding: 0 0.48rem;
-      // overflow: hidden;
+      overflow: hidden;
       background-color: #fff;
       .food{
         position: relative;
@@ -143,6 +167,11 @@
           font-weight: 700;
           color: #f60;
         }
+        .cartcontrol-wrapper{
+          position: absolute;
+          right: 0;
+          bottom: 0.2rem;
+        }
       }
     }
   }
@@ -153,7 +182,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -2;
+  z-index: 40;
   backdrop-filter: blur(10px);
   opacity: 1;
   background-color: rgba(7,17,27,0.6);

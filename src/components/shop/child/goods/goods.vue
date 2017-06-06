@@ -95,6 +95,13 @@
       }
     },
     methods: {
+      _drop (target) {
+        // 异步执行下落动画 优化两个动画同时执行的卡顿
+        this.$nextTick(() => {
+          // 调用子组件shopcart的drop方法
+          this.$refs.shopcart.drop(target)
+        })
+      },
       _initScroll () {
         this.menuScroll = new BScroll(this.$refs.menuWrapper, {
           click: true
@@ -122,7 +129,9 @@
         let el = foodList[index]
         this.foodScroll.scrollToElement(el, 300)
       },
-      addFood (event) {
+      addFood (target) {
+        // 执行小球下落动画
+        this._drop(target)
       }
     },
     components: {

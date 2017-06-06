@@ -264,6 +264,41 @@ methods: {
 <cartcontrol @add="addFood" :food="food"></cartcontrol>
 ```
 
+* 小球飞入的动画效果
+> 与 ‘-’ 的小球出现和消失时从水平滚动的动画同理，外层div控制左右移动，内部的div （inner）控制滚动rote
+
+小球是相对与视口的动画，故它的position:fixed
+
+（1）开始位置: 需要计算
+点击add的时候，派发一个事件，将它的dom传给父组件，这样就能获得该‘+’按钮相对与视口在什么位置，
+也就是前面的addCart方法里添加了这么一句
+
+```
+// 向父组件传递事件
+	  this.$emit('add', event.target)
+
+```
+父组件goods接收到cartcontrol组件的add方法后，命名为addFood, 在父组件中的methods中定义addFood方法。
+父组件goods执行shopcart组件的drop方法后
+在goods组件中有
+
+```
+methods: {
+      _drop (target) {
+        this.$nextTick(() =>{
+        // 调用子组件shopcart的drop方法, 这样就可以把点击的dom传给shopcart, 它就可以获取到起始位置
+          this.$refs.shopcart.drop(target)
+        })
+      },
+      addFood (target) {
+        // 执行小球下落动画
+        this._drop(target)
+      }
+    }
+```
+
+（2）落点位置: 底部的footer购物车图标的位置
+
 
 >  如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
 
