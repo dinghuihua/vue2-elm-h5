@@ -24,21 +24,43 @@
         </div> 
       </div>
     </div>
+    <split></split>
+    <ratingselect @choose="selectRating" @toggle="toggleContent" :ratings="ratings" :select-type="selectType" :only-content="onlyContent"></ratingselect>
   </div>
 </template>
 <script>
   import star from '../../../../components/common/star/star'
+  import split from '../../../../components/common/split/split'
+  import ratingselect from '../../../../components/common/ratingselect/ratingselect'
+
+  const ALL = 2
+
   export default {
     props: ['seller'],
     data () {
-      return {}
+      return {
+        selectType: ALL,
+        onlyContent: true
+      }
     },
     mounted () {
-      console.log(this.seller)
+      console.log(this.ratings)
+    },
+    computed: {
+      ratings () {
+        return this.seller.ratings
+      }
+    },
+    methods: {
+      selectRating () {
+
+      },
+      toggleContent () {
+
+      }
     },
     components: {
-      star
+      star, split, ratingselect
     }
   }
 </script>
-
