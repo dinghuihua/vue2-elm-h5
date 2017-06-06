@@ -28,7 +28,7 @@
     data () {
       return {
         showThePath: true,
-        showContent: 'goods' // 默认显示商品列表
+        showContent: 'ratings' // 默认显示商品列表
       }
     },
     computed: {

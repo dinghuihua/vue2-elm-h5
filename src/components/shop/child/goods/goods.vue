@@ -65,9 +65,6 @@
         this._calculateHeight()
       })
     },
-    mounted () {
-      console.log(this.seller)
-    },
     computed: {
       goods () {
         return this.seller.goods
