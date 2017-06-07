@@ -84,11 +84,17 @@
           return type === this.selectType
         }
       },
-      selectRating () {
-
+      selectRating (type) {
+        this.selectType = type
+        this.$nextTick(() => {
+          this.scroll.refresh()
+        })
       },
       toggleContent () {
-
+        this.onlyContent = !this.onlyContent
+        this.$nextTick(() => {
+          this.scroll.refresh()
+        })
       }
     },
     components: {
