@@ -26,6 +26,28 @@
     </div>
     <split></split>
     <ratingselect @choose="selectRating" @toggle="toggleContent" :ratings="ratings" :select-type="selectType" :only-content="onlyContent"></ratingselect>
+    <div class="rating-wrapper">
+      <ul>
+        <li v-show="needShow(rating.rateType, rating.text)" v-for="rating in ratings" class="rating-item">
+          <div class="avatar">
+            <img :src="rating.avatar">
+          </div>
+          <div class="content">
+            <h2 class="name">{{rating.username}}</h2>
+            <div class="star-wrapper">
+              <star :size="24" :score="rating.score"></star>
+              <span class="delivery" v-show="rating.deliveryTime">{{rating.deliveryTime}}分钟送达</span>
+            </div>
+            <div class="text">{{rating.text}}</div>
+            <div class="recommend-wrapper" v-show="rating.recommend && rating.recommend.length">
+              <i class="icon i-thumb_up"></i>
+              <span class="recommend-item" v-for="item in rating.recommend">{{item}}</span>
+            </div>
+            <div class="time">{{rating.rateTime}}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 <script>
@@ -52,6 +74,16 @@
       }
     },
     methods: {
+      needShow (type, text) {
+        if (this.onlyContent && !text) {
+          return false
+        }
+        if (this.selectType === ALL) {
+          return true
+        } else {
+          return type === this.selectType
+        }
+      },
       selectRating () {
 
       },
