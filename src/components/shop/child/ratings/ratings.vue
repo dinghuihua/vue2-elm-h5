@@ -65,9 +65,6 @@
         onlyContent: true
       }
     },
-    mounted () {
-      console.log(this.ratings)
-    },
     computed: {
       ratings () {
         return this.seller.ratings

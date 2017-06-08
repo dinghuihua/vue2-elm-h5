@@ -1,0 +1,76 @@
+@title-color: #07111b;
+.seller-content{
+  position: absolute;
+  top: 4.84rem; // 363px
+  bottom: 1.28rem;
+  width: 100%;
+  background-color: #fff;
+  .title{
+    line-height: 0.373333rem;
+    font-size: 0.373333rem;
+    color: @title-color;
+  }
+  .overview{
+    padding: 0.48rem;
+    .desc{
+      line-height: 0.48rem;
+      margin-top: 0.213333rem;
+      padding-bottom: 0.48rem;
+      border-bottom: 1px solid rgba(7, 17, 27, 0.1);
+      font-size: 0;
+      .star, .text{
+        display: inline-block;
+        vertical-align: top;
+      }
+      .star{
+        margin-right: 0.213333rem;
+      }
+      .text{
+        margin-right: 0.32rem;
+        font-size: 0.266667rem;
+        color: #4d555d;
+      }
+    }
+    .remark{
+      padding-top: 0.48rem;
+      display: flex;
+      .block{
+        display: inline-block;
+        flex: 1;
+        text-align: center;
+        &:not(:last-child){
+          border-right: 0.013333rem solid rgba(7, 17, 27, 0.1);
+        }
+      }
+      .tit{
+        margin-bottom: 0.106667rem;
+        line-height: 0.266667rem;
+        font-size: 0.266667rem;
+        color: rgb(147, 153, 157);
+      }
+      .content{
+        font-size: 0.266667rem;
+        .stress{
+          line-height: 0.64rem;
+          font-size: 0.64rem;
+          color: @title-color;
+        }
+      }
+    }
+  }
+  .bulletin{
+    padding: 0.48rem 0.48rem 0 0.48rem;
+    .title{
+      margin-bottom: 0.213333rem;
+    }
+    .content-wrapper{
+      padding: 0 0.32rem 0.426667rem;
+      border-bottom: 0.013333rem solid rgba(7, 17, 27, 0.1);
+      .content{
+        font-size: 0.32rem;
+        line-height: 0.64rem;
+        color: rgb(240, 20, 20);
+      }
+    }
+  }
+}
