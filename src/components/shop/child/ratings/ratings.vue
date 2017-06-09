@@ -1,6 +1,6 @@
 <style lang="less" src="./ratings.less" scoped></style>
 <template>
-  <div class="ratings-content">
+  <div class="ratings-content" ref="rating">
     <div class="overview">
       <div class="overview-left">
         <h1 class="score">{{seller.score}}</h1>
@@ -51,6 +51,7 @@
   </div>
 </template>
 <script>
+  import BScroll from 'better-scroll'
   import star from '../../../../components/common/star/star'
   import split from '../../../../components/common/split/split'
   import ratingselect from '../../../../components/common/ratingselect/ratingselect'
@@ -70,6 +71,17 @@
         return this.seller.ratings
       }
     },
+    created () {
+      this.$nextTick(() => {
+        if (!this.scroll) {
+          this.scroll = new BScroll(this.$refs.rating, {
+            click: true
+          })
+        } else {
+          this.scroll.refresh()
+        }
+      })
+    },
     methods: {
       needShow (type, text) {
         if (this.onlyContent && !text) {
@@ -83,6 +95,7 @@
       },
       selectRating (type) {
         this.selectType = type
+        // $nextTick触发之后, dom才会更新
         this.$nextTick(() => {
           this.scroll.refresh()
         })
