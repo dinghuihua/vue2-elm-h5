@@ -1,6 +1,7 @@
 <style lang="less" src="./ratings.less" scoped></style>
 <template>
-  <div class="ratings-content" ref="rating">
+<div class="ratings" ref="rating">
+  <div class="ratings-content" >
     <div class="overview">
       <div class="overview-left">
         <h1 class="score">{{seller.score}}</h1>
@@ -49,6 +50,7 @@
       </ul>
     </div>
   </div>
+</div>  
 </template>
 <script>
   import BScroll from 'better-scroll'

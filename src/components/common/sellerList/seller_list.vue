@@ -61,6 +61,7 @@ export default {
   },
   methods: {
     toDetail (id) {
+      console.log('点击seller list item')
       this.$router.push({path: 'shop', query: { id: id }})
     }
   },

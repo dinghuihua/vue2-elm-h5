@@ -1,5 +1,6 @@
 <style lang="less" src="./seller.less" scoped></style>
 <template>
+<div class="seller">
   <div class="seller-content" ref="sellerContent">
     <div class="overview">
       <h1 class="title">{{seller.name}}</h1>
@@ -55,6 +56,7 @@
     </div>
     <split></split>
   </div>
+</div>  
 </template>
 <script>
   import BScroll from 'better-scroll'
