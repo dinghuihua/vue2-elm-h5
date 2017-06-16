@@ -16,7 +16,9 @@ html {
   user-select: none;
   -webkit-font-smoothing: antialiased;
   touch-action: manipulation;
-  text-size-adjust: none
+  // 解决chrome下 文字强制小于12px
+  text-size-adjust: none;
+  -webkit-text-size-adjust: none
 }
 
 body,button,dd,dl,ol,ul {
